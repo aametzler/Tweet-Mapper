@@ -1,11 +1,9 @@
 import axios from 'axios';
-import { Config } from '../utility';
+import Config from '../utility/config';
 
 export const apiClient = axios.create({ withCredentials: true });
 
-const apiRoot = Config.isDev
-  ? Config.devApiRoute
-  : Config.prodApiRoute;
+const apiRoot = Config.API_ROUTE;
 
 export async function apiCall(method, path, params, opts) {
   method = method.toLowerCase();
